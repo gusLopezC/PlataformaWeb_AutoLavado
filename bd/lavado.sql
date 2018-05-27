@@ -72,3 +72,12 @@ create table ventas(
 				foreign key (id_producto) REFERENCES articulos(id_producto),
 				foreign key (id_usuario) REFERENCES usuarios(id_usuario)
 					);
+
+CREATE TABLE `proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombreProvedor` varchar(150) NOT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `fechaCaptura` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

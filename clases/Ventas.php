@@ -52,8 +52,7 @@ class ventas{
 									id_usuario,
 									precio,
 									fechaCompra)
-					values ('$idventa','$d[5]','$d[0]','$idusuario','$d[3]','$fecha') 
-					inner join articulos";
+					values ('$idventa','$d[5]','$d[0]','$idusuario','$d[3]','$fecha')";
 
 			 $sql2="UPDATE articulos SET lote = lote - 1 where id_producto='$d[0]' and lote>0";
 			

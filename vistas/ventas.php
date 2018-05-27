@@ -25,7 +25,7 @@ if(isset($_SESSION['usuario'])){
 				<?php while($ver=mysqli_fetch_row($result)): ?>
 					<?php if ($ver[1]<=15):?>
 						<div id="ventaAlert" class="alert alert-danger col-sd-1">
-						<h4">ALERTA -->   </h4>
+						<h4>ALERTA -->   </h4>
 						    El producto <b><?php echo $ver[0]; ?> </b>casi se acabe en stock quedan 
 							<b><?php echo $ver[1];?></b> articulos
 							<b>Contacte con proveedor</b></p>

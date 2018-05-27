@@ -192,6 +192,7 @@ if(isset($_SESSION['usuario'])){
 							$('#tablaArticulosLoad').load("articulos/tablaArticulos.php");
 							alertify.success("Agregado con exito :D");
 						}else{
+							alert(r);
 							alertify.error("Fallo al subir el archivo :(");
 						}
 					}

@@ -5,7 +5,7 @@
 	$conexion = $c->conexion();
 	$obj= new ventas();
 
-	$sql="SELECT id_venta,fechaCompra,id_cliente from ventas group by id_venta";
+	$sql="SELECT id_venta,fechaCompra,id_cliente,usuarios.nombre from ventas,usuarios WHERE ventas.id_usuario = usuarios.id_usuario group by id_venta";
 	$result=mysqli_query($conexion,$sql);
 	
 
@@ -21,6 +21,7 @@
 				<tr>
 					<td>Folio</td>
 					<td>Fecha</td>
+					<td>Atendido por</td>
 					<td>Cliente</td>
 					<td>Total</td>
 					<td>Ticket</td>
@@ -30,6 +31,7 @@
 				<tr>
 					<td><?php echo $ver[0]; ?></td>
 					<td><?php echo $ver[1]; ?></td>
+					<td><?php echo $ver[3]; ?></td>
 					<td><?php 
 							if ($obj->nombreCliente($ver[2])==" ") {
 								echo "S/C No aplica";

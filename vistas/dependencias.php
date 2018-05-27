@@ -15,5 +15,7 @@
 <script src="../librerias/select2/js/select2.js"></script>
 <script src="../js/funciones.js"></script>
 
-<script src="../librerias/Chartjs/Chart.js"></script>
-<script src="../librerias/Chartjs/Chart.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../librerias/morris.js-0.5.1/morris.css">
+
+<script src="../librerias/morris.js-0.5.1/raphael-min.js"></script>
+ <script src="../librerias/morris.js-0.5.1/morris.min.js"></script>
