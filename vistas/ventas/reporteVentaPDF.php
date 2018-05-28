@@ -7,16 +7,7 @@
 
 	$idventa=  $_GET['idventa'];
 
-	 $sql="SELECT ve.id_venta,
-		ve.fechaCompra,
-		ve.id_cliente,
-		art.nombre,
-        art.precio,
-        art.descripcion
-	from ventas  as ve 
-	inner join articulos as art
-	on ve.id_producto=art.id_producto
-	and ve.id_venta='$idventa'";
+	 $sql="SELECT ve.id_venta, ve.fechaCompra, ve.id_cliente, art.nombre, art.precio, art.descripcion, usua.nombre from ventas as ve inner join articulos as art INNER JOIN usuarios as usua on ve.id_producto=art.id_producto and ve.id_usuario = usua.id_usuario and ve.id_venta='$idventa'";
 
 	$result=mysqli_query($conexion, $sql);
 	$ver=mysqli_fetch_row($result);
@@ -24,6 +15,7 @@
 	$folio=$ver[0];
 	$fecha=$ver[1];
 	$idcliente=$ver[2];
+	$atendio=$ver[6]
  ?> 
 
  <!DOCTYPE html>
@@ -47,6 +39,9 @@
  			</tr>
  			<tr>
  				<td>cliente: <?php echo $objv->nombreCliente($idcliente); ?></td>
+ 			</tr>
+			 <tr>
+ 				<td>Atendido por: <?php echo $atendio ?></td>
  			</tr>
  		</table>
  		

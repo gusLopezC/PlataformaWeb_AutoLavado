@@ -1,77 +1,94 @@
-create database lavado;
+-- phpMyAdmin SQL Dump
+-- version 4.6.6deb5
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 27-05-2018 a las 00:54:34
+-- Versión del servidor: 5.6.30-1
+-- Versión de PHP: 7.0.20-2
 
-use lavado;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-create table usuarios(
-				id_usuario int auto_increment,
-				nombre varchar(50) not null,
-				apellido varchar(50) not null,
-				usuario varchar(50) not null,
-				password text(50) not null,
-				fechaCaptura date not null,
-				primary key(id_usuario)
-					);
 
-create table categorias (
-				id_categoria int auto_increment,
-				id_usuario int not null,
-				nombreCategoria varchar(150) not null,
-				fechaCaptura date,
-				primary key(id_categoria),
-				foreign key (id_usuario) REFERENCES usuarios(id_usuario)
-						);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-create table imagenes(
-				id_imagen int auto_increment ,
-				id_categoria int not null,
-				nombre varchar(500) not null,
-				ruta varchar(500),
-				fechaSubida date,
-				primary key(id_imagen),
-				foreign key (id_categoria) REFERENCES categorias(id_categoria)
-					);
-create table articulos(
-				id_producto int auto_increment,
-				id_categoria int not null,
-				id_imagen int not null,
-				id_usuario int not null,
-				nombre varchar(50),
-				descripcion varchar(500),
-				cantidad int,
-				precio float,
-				fechaCaptura date,
-				provedor varchar(500),
-				lote int,
-				primary key(id_producto),
-				foreign key (id_categoria) REFERENCES categorias(id_categoria),
-				foreign key (id_imagen) REFERENCES imagenes(id_imagen),
-				foreign key (id_usuario) REFERENCES usuarios(id_usuario)
+--
+-- Base de datos: `lavado`
+--
 
-						);
+-- --------------------------------------------------------
 
-create table clientes(
-				id_cliente int auto_increment,
-				id_usuario int not null,
-				nombre varchar(200),
-				apellido varchar(200),
-				direccion varchar(200),
-				email varchar(200),
-				telefono varchar(200),
-				rfc varchar(200),
-				primary key(id_cliente)
-					);
+--
+-- Estructura de tabla para la tabla `articulos`
+--
 
-create table ventas(
-				id_venta int not null,
-				id_cliente int,
-				id_producto int,
-				id_usuario int,
-				precio float,
-				fechaCompra date,
-				foreign key (id_cliente) REFERENCES clientes(id_cliente),
-				foreign key (id_producto) REFERENCES articulos(id_producto),
-				foreign key (id_usuario) REFERENCES usuarios(id_usuario)
-					);
+CREATE TABLE `articulos` (
+  `id_producto` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `id_imagen` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `fechaCaptura` date DEFAULT NULL,
+  `provedor` varchar(500) DEFAULT NULL,
+  `lote` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombreCategoria` varchar(150) NOT NULL,
+  `fechaCaptura` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `apellido` varchar(200) DEFAULT NULL,
+  `direccion` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `telefono` varchar(200) DEFAULT NULL,
+  `rfc` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `id_imagen` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `nombre` varchar(500) NOT NULL,
+  `ruta` varchar(500) DEFAULT NULL,
+  `fechaSubida` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
 
 CREATE TABLE `proveedor` (
   `id_proveedor` int(11) NOT NULL,
@@ -81,3 +98,147 @@ CREATE TABLE `proveedor` (
   `telefono` varchar(20) DEFAULT NULL,
   `fechaCaptura` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `password` tinytext NOT NULL,
+  `fechaCaptura` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `password`, `fechaCaptura`) VALUES
+(1, 'admin', 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2018-05-27');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id_venta` int(11) NOT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `fechaCompra` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `articulos`
+--
+ALTER TABLE `articulos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_categoria` (`id_categoria`),
+  ADD KEY `id_imagen` (`id_imagen`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`id_imagen`),
+  ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`id_proveedor`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `articulos`
+--
+ALTER TABLE `articulos`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `articulos`
+--
+ALTER TABLE `articulos`
+  ADD CONSTRAINT `articulos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`),
+  ADD CONSTRAINT `articulos_ibfk_2` FOREIGN KEY (`id_imagen`) REFERENCES `imagenes` (`id_imagen`),
+  ADD CONSTRAINT `articulos_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
+
+--
+-- Filtros para la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
