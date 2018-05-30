@@ -30,7 +30,9 @@
           </li> 
           <li><a href="inicio.php"><span class="glyphicon glyphicon-file "></span> Reportes</a>
           </li>
-
+          <?php 
+        if ($_SESSION['usuario'] == "admin"):
+        ?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Administrar Servicios <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -41,9 +43,7 @@
           </ul>
         </li>
 
-        <?php 
-        if ($_SESSION['usuario'] == "admin"):
-        ?>
+        
         <li><a href="usuarios.php"><span class="glyphicon glyphicon-user"></span> Administrar usuarios</a>
         </li>
         <?php 

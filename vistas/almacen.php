@@ -68,13 +68,7 @@ if(isset($_SESSION['usuario'])){
 							<label>Precio</label>
 							<input type="text" class="form-control input-sm" id="precioU" name="precioU">
 							<label>Proveedor</label>
-							<select class="form-control input-sm" id="proveedorU" name="proveedorU">
-							<option disabled>Selecciona Categoria</option>
-							<option value="REFAC. Rojas">REFAC. Rojas</option>
-							<option value="Quakerstate">Quakerstate</option>
-							<option value="Castrol">Castrol</option>
-							<option value="Grupo GONHER">Grupo GONHER</option>
-							</select>
+							<input type="text" class="form-control input-sm" id="proveedorU" name="proveedorU">
 							<label>Cantidad stock</label>
 							<input type="text" class="form-control input-sm" id="stockU" name="stockU">
 							

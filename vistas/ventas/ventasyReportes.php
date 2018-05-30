@@ -5,18 +5,17 @@
 	$conexion = $c->conexion();
 	$obj= new ventas();
 
-	$sql="SELECT id_venta,fechaCompra,id_cliente,usuarios.nombre from ventas,usuarios WHERE ventas.id_usuario = usuarios.id_usuario group by id_venta";
+	$sql="SELECT id_venta,fechaCompra,id_cliente,usuarios.nombre from ventas,usuarios WHERE ventas.id_usuario = usuarios.id_usuario group by id_venta ORDER BY id_venta DESC 	";
 	$result=mysqli_query($conexion,$sql);
  ?>
 <h4>Reportes y ventas</h4>
 <div class="row">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-12"> 
-		<div class="table-responsive">
-			<table class="table table-hover table-condensed table-bordered text-center" id="iddatatable">
-
-					<thead style="background-color:#dc2545; color: white; font-weight:bold;">
-					<tr>
+	
+	
+		<div >
+		<table class="table table-hover table-condensed table-bordered" id="iddatatable">
+			<thead style="background-color: #dc3545;color: white; font-weight: bold;">
+				<tr>
 					<td>Folio</td>
 					<td>Fecha</td>
 					<td>Atendido por</td>
@@ -24,9 +23,9 @@
 					<td>Total</td>
 					<td>Ticket</td>
 					<td>Reporte</td>
-					</tr>
-					</thead>
-				<tr>
+				</tr>
+			</thead>
+				
 				<tfoot style="background-color:#ccc; color: white; font-weight:bold;">
 				<tr>
 					<td>Folio</td>
@@ -39,7 +38,7 @@
 					</tr>
 				
 				</tfoot>
-					
+				<tbody >
 				<?php  while ($ver=mysqli_fetch_row($result)): ?>
 				<tr>
 					<td><?php echo $ver[0]; ?></td>
@@ -66,10 +65,17 @@
 							<i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
 						</a>
 				</tr>
-			<?php endwhile; ?>
+			<?php endwhile; 
+			?>
+			</tbody>
 			</table>
 		</div>
-	</div>
-	<div class="col-sm-1"></div>
+	
 </div>
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#iddatatable').DataTable({
+		"order": [[ 3, "desc" ]]
+	});
+} );
+</script>

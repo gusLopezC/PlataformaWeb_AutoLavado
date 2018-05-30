@@ -72,6 +72,12 @@ if(isset($_SESSION['usuario'])){
 			}
 		</script>
 
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#iddatatable').DataTable();
+		});
+	</script>
+
 </script>
 		<?php 
 	}else{

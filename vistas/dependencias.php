@@ -13,7 +13,6 @@
 <!-- BOOSTRAP-->
 
 <link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bootstrap.css">
-<script src="../librerias/bootstrap/js/popper.min.js"></script>
 <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
 
 
@@ -31,4 +30,8 @@
 <script src="../librerias/morris.js-0.5.1/raphael-min.js"></script>
 <script src="../librerias/morris.js-0.5.1/morris.min.js"></script>
 
+<!-- DATATABLE-->
+<link rel="stylesheet" type="text/css" href="../librerias/datatable/dataTables.bootstrap4.min.css">
+<script src="../librerias/datatable/jquery.dataTables.min.js"></script>
+<script src="../librerias/datatable/dataTables.bootstrap4.min.js"></script>
 
