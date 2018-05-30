@@ -53,33 +53,3 @@
 </body>
 </html>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#registro').click(function(){
-
-			vacios=validarFormVacio('frmRegistro');
-
-			if(vacios > 0){
-				alert("Debes llenar todos los campos!!");
-				return false;
-			}
-
-			datos=$('#frmRegistro').serialize();
-			$.ajax({
-				type:"POST",
-				data:datos,
-				url:"procesos/regLogin/registrarUsuario.php",
-				success:function(r){
-					alert(r);
-
-					if(r==1){
-						alert("Agregado con exito");
-					}else{
-						alert("Fallo al agregar :(");
-					}
-				}
-			});
-		});
-	});
-</script>
-

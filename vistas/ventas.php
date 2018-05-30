@@ -51,26 +51,6 @@ if(isset($_SESSION['usuario'])){
 		</body>
 		</html>
 
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#ventaProductoBtn').click(function(){
-					esconderSeccionVenta();
-					$('#ventasProducto').load('ventas/ventasProducto.php');
-					$('#ventasProducto').show();		
-
-				});
-				$('#ventasHechasBtn').click(function(){
-					esconderSeccionVenta();
-					$('#ventasHechas').load('ventas/ventasyReportes.php');
-					$('#ventasHechas').show();
-				});
-			});
-
-			function esconderSeccionVenta(){
-				$('#ventasProducto').hide();
-				$('#ventasHechas').hide();
-			}
-		</script>
 
 		<script type="text/javascript">
 		$(document).ready(function(){

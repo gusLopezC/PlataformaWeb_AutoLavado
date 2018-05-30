@@ -35,3 +35,16 @@
 <script src="../librerias/datatable/jquery.dataTables.min.js"></script>
 <script src="../librerias/datatable/dataTables.bootstrap4.min.js"></script>
 
+
+
+<<!-- SCRITPS-->
+
+<script src="../js/funciones.js"></script>
+<script src="../js/venta.js"></script>
+<script src="../js/almacen.js"></script>
+<script src="../js/articulos.js"></script>
+<script src="../js/categoria.js"></script>
+<script src="../js/cliente.js"></script>
+<script src="../js/proveedor.js"></script>
+<script src="../js/usuario.js"></script>
+
