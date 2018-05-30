@@ -21,6 +21,7 @@
 
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
 	<caption><label>Articulos</label></caption>
+	<thead style="background-color: #dc3545;color: white; font-weight: bold;">
 	<tr>
 		<td>Nombre</td>
 		<td>Descripcion</td>
@@ -31,6 +32,7 @@
 		<td>Editar</td>
 		<td>Eliminar</td>
 	</tr>
+	<thead>
 
 	<?php while($ver=mysqli_fetch_row($result)): ?>
 

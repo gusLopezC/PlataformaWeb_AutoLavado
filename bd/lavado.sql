@@ -1,31 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6deb5
--- https://www.phpmyadmin.net/
---
--- Servidor: localhost:3306
--- Tiempo de generación: 27-05-2018 a las 00:54:34
--- Versión del servidor: 5.6.30-1
--- Versión de PHP: 7.0.20-2
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE USER  'adminlavado'@'localhost' IDENTIFIED BY 'tellezgiron1';
+CREATE  DATABASE  IF NOT EXISTS lavado;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+GRANT ALL PRIVILEGES ON lavado.* TO  'adminlavado'@'localhost' ;
+FLUSH PRIVILEGES;
 
---
--- Base de datos: `lavado`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `articulos`
---
-
+USE lavado;
 CREATE TABLE `articulos` (
   `id_producto` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL,
@@ -238,7 +222,3 @@ ALTER TABLE `imagenes`
 --
 ALTER TABLE `proveedor`
   ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

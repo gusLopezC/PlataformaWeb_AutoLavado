@@ -57,8 +57,6 @@ if(isset($_SESSION['usuario'])){
 			$('#iddatatable').DataTable();
 		});
 	</script>
-
-</script>
 		<?php 
 	}else{
 		header("location:../index.php");

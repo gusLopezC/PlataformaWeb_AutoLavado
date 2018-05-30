@@ -36,14 +36,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Administrar Servicios <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="categorias.php">Categorias</a></li>
             <li><a href="articulos.php">Servicios</a></li>
-            <li><a href="proveedor.php">Proveedores</a></li>
             <li><a href="almacen.php">Almacen</a></li>
+            <li><a href="categorias.php">Categorias</a></li>
           </ul>
         </li>
-
-        
         <li><a href="usuarios.php"><span class="glyphicon glyphicon-user"></span> Administrar usuarios</a>
         </li>
         <?php 
