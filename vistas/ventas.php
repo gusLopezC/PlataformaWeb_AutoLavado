@@ -71,6 +71,8 @@ if(isset($_SESSION['usuario'])){
 				$('#ventasHechas').hide();
 			}
 		</script>
+
+</script>
 		<?php 
 	}else{
 		header("location:../index.php");

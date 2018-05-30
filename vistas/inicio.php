@@ -39,9 +39,9 @@ if(isset($_SESSION['usuario'])){
     $chart_data = '';
     while ($registros= mysqli_fetch_array($result))
     {   
-      $chart_data .= "{ totalventas:'".$registros["totalventas"]."', fechaCompra:".$registros["fechaCompra"]."}, ";
+      $chart_data .= "{ totalventas:'".$registros["totalventas"]."', fechaCompra:'".$registros["fechaCompra"]."'}, ";
     }
-     //  $chart_data = substr($chart_data, 0,-2);
+      $chart_data = substr($chart_data, 0,-2);
   ?>
   data:[<?php echo $chart_data; ?>],
   xkey: 'fechaCompra',
@@ -57,9 +57,9 @@ new Morris.Line({
     $chart_data = '';
     while ($registros= mysqli_fetch_array($result))
     {   
-      $chart_data .= "{ sumfecha:'".$registros["sumfecha"]."', fechaCompra:".$registros["fechaCompra"].", sumprecio:".$registros["sumprecio"]."}, ";
+      $chart_data .= "{ sumfecha:'".$registros["sumfecha"]."',fechaCompra:'".$registros["fechaCompra"]."', sumprecio:".$registros["sumprecio"]."}, ";
     }
-     //  $chart_data = substr($chart_data, 0,-2);
+       $chart_data = substr($chart_data, 0,-2);
   ?>
   data:[<?php echo $chart_data; ?>],
   xkey: 'fechaCompra',
@@ -70,14 +70,14 @@ new Morris.Bar({
   
   element: 'productosstock',
   <?php 
-  $sql="SELECT nombre,lote FROM articulos WHERE id_categoria!= 1";
+  $sql="SELECT nombre,lote,nombreCategoria FROM articulos,categorias WHERE articulos.id_categoria=categorias.id_categoria and categorias.nombreCategoria != 'autolavado'";
     $result=mysqli_query($conexion,$sql);
     $chart_data = '';
     while ($registros= mysqli_fetch_array($result))
     {   
-      $chart_data .= "{ nombre:'".$registros["nombre"]."', lote:".$registros["lote"]."}, ";
+      $chart_data .= "{ nombre:'".$registros["nombre"]."',lote:".$registros["lote"]."}, ";
     }
-     //  $chart_data = substr($chart_data, 0,-2);
+       $chart_data = substr($chart_data, 0,-2);
   ?>
   data:[<?php echo $chart_data; ?>],
   xkey: 'nombre',
@@ -93,9 +93,9 @@ new Morris.Bar({
     $chart_data = '';
     while ($registros= mysqli_fetch_array($result))
     {   
-      $chart_data .= "{ countproducto:'".$registros["countproducto"]."', fechaCompra:".$registros["fechaCompra"]."}, ";
+      $chart_data .= "{ countproducto:'".$registros["countproducto"]."', fechaCompra:'".$registros["fechaCompra"]."'}, ";
     }
-     //  $chart_data = substr($chart_data, 0,-2);
+       $chart_data = substr($chart_data, 0,-2);
   ?>
   data:[<?php echo $chart_data; ?>],
   xkey: 'fechaCompra',

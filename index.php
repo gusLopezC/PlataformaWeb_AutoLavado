@@ -16,7 +16,7 @@
 <head>
 	<title>Login de usuario</title>
 	<link rel="stylesheet" type="text/css" href="librerias/bootstrap/css/bootstrap.css">
-	<script src="librerias/jquery-3.2.1.min.js"></script>
+	<script src="librerias/jquery-3.3.1.min.js"></script>
 	<script src="js/funciones.js"></script>
 </head>
 <body style="background: blue"> 
