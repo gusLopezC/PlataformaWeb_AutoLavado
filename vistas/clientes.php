@@ -77,8 +77,31 @@ if(isset($_SESSION['usuario'])){
 
 	</body>
 	</html>
+<script>
+
+		$(document).ready(function(){
+			$('#btnAgregarClienteU').click(function(){
+				datos=$('#frmClientesU').serialize();
+				$.ajax({
+					type:"POST",
+					data:datos,
+					url:"../procesos/clientes/actualizaCliente.php",
+					success:function(r){
+						if(r==1){
+							$('#frmClientes')[0].reset();
+							$('#tablaClientesLoad').load("clientes/tablaClientes.php");
+							alertify.success("Cliente actualizado con exito :D");
+						}else{
+							alertify.error("No se pudo actualizar cliente");
+						}
+					}
+				});
+			});
+		});
+		</script>
 	<?php 
 }else{
 	header("location:../index.php");
 }
 ?>
+

@@ -19,7 +19,7 @@
 	<script src="librerias/jquery-3.3.1.min.js"></script>
 	<script src="js/funciones.js"></script>
 </head>
-<body style="background: blue"> 
+<body style="background: #87CBF7"> 
 	<br><br><br>
 	<div class="container">
 		<div class="row">

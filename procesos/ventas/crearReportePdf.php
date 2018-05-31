@@ -31,7 +31,7 @@ $pdf->set_paper("letter", "portrait");
  
 // Cargamos el contenido HTML.
 $pdf->load_html(utf8_decode($html));
- 
+ini_set("memory_limit","64M");
 // Renderizamos el documento PDF.
 $pdf->render();
  
