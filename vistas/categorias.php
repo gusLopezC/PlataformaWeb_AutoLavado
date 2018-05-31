@@ -59,6 +59,15 @@ if(isset($_SESSION['usuario'])){
 
 	</body>
 	</html>
+	<script>
+window.addEventListener("load", function() {
+	frmCategorias.categoria.addEventListener("keypress", soloLetras, false);
+	
+});
+window.addEventListener("load", function() {
+	frmCategoriaU.categoriaU.addEventListener("keypress", soloLetras, false);
+});
+</script>
 		<?php 
 }else{
 	header("location:../index.php");

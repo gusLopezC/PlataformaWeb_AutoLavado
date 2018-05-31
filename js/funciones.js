@@ -10,3 +10,18 @@ function validarFormVacio(formulario){
 		}
 		return vacios;
 	}
+
+
+	function soloNumeros(e){
+		var key = window.event ? e.which : e.keyCode;
+		if (key < 46 || key > 57) {
+		  e.preventDefault();
+		}
+	  }
+	  
+	  function soloLetras(e){
+		  var charCode = e.charCode;
+		  if (charCode < 65 || charCode > 122) {
+			e.preventDefault();
+		}
+	  }

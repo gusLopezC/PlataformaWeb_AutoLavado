@@ -94,6 +94,23 @@ if(isset($_SESSION['usuario'])){
 
 	</body>
 	</html>
+
+<script>
+window.addEventListener("load", function() {
+	frmArticulos.nombre.addEventListener("keypress", soloLetras, false);
+	frmArticulos.descripcion.addEventListener("keypress", soloLetras, false);
+	frmArticulos.cantidad.addEventListener("keypress", soloNumeros, false);
+	frmArticulos.precio.addEventListener("keypress", soloNumeros, false);
+	
+});
+window.addEventListener("load", function() {
+	frmArticulosU.nombreU.addEventListener("keypress", soloLetras, false);
+	frmArticulosU.descripcionU.addEventListener("keypress", soloLetras, false);
+	frmArticulosU.cantidadU.addEventListener("keypress", soloNumeros, false);
+	frmArticulosU.precioU.addEventListener("keypress", soloNumeros, false);
+});
+</script>
+
 	<?php 
 }else{
 	header("location:../index.php");

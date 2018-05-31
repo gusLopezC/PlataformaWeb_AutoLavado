@@ -68,6 +68,19 @@ if(isset($_SESSION['usuario']) and $_SESSION['usuario']=='admin'){
 	</body>
 	</html>
 
+<script>
+window.addEventListener("load", function() {
+	frmRegistro.nombre.addEventListener("keypress", soloLetras, false);
+	frmRegistro.apellido.addEventListener("keypress", soloLetras, false);
+});
+
+window.addEventListener("load", function() {
+	frmRegistroU.nombreU.addEventListener("keypress", soloLetras, false);
+	frmRegistroU.apellidoU.addEventListener("keypress", soloLetras, false);
+	
+});
+</script>
+
 	<?php 
 }else{
 	header("location:../index.php");

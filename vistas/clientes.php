@@ -26,7 +26,7 @@ if(isset($_SESSION['usuario'])){
 						<label>Email</label>
 						<input type="text" class="form-control input-sm" id="email" name="email">
 						<label>Telefono</label>
-						<input type="text" class="form-control input-sm" id="telefono" name="telefono">
+						<input type="text" class="form-control input-sm" id="telefono" name="telefono" maxlength="10" >
 						<label>RFC</label>
 						<input type="text" class="form-control input-sm" id="rfc" name="rfc">
 						<p></p>
@@ -62,7 +62,7 @@ if(isset($_SESSION['usuario'])){
 							<label>Email</label>
 							<input type="text" class="form-control input-sm" id="emailU" name="emailU">
 							<label>Telefono</label>
-							<input type="text" class="form-control input-sm" id="telefonoU" name="telefonoU">
+							<input type="text" class="form-control input-sm" id="telefonoU" name="telefonoU" maxlength="10">
 							<label>RFC</label>
 							<input type="text" class="form-control input-sm" id="rfcU" name="rfcU">
 						</form>
@@ -77,6 +77,24 @@ if(isset($_SESSION['usuario'])){
 
 	</body>
 	</html>
+
+<script>
+window.addEventListener("load", function() {
+	
+	frmClientes.nombre.addEventListener("keypress", soloLetras, false);
+	frmClientes.apellidos.addEventListener("keypress", soloLetras, false);
+	frmClientes.telefono.addEventListener("keypress", soloNumeros, false);
+	
+});
+
+window.addEventListener("load", function() {
+	
+	frmClientesU.nombreU.addEventListener("keypress", soloLetras, false);
+	frmClientesU.apellidosU.addEventListener("keypress", soloLetras, false);
+	frmClientesU.telefonoU.addEventListener("keypress", soloNumeros, false);
+});
+</script>
+
 <script>
 
 		$(document).ready(function(){
