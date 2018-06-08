@@ -11,13 +11,21 @@ function validarFormVacio(formulario){
 		return vacios;
 	}
 
-
+//usa el nivel DOM 2  de JS para solo permtir los caracteres dentro del if segun su codig ASCII
 	function soloNumeros(e){
 		var key = window.event ? e.which : e.keyCode;
 		if (key < 46 || key > 57) {
 		  e.preventDefault();
 		}
-	  }
+		}
+		
+
+		function soloNumerosenteros(e){
+			var key = window.event ? e.which : e.keyCode;
+			if (key < 48 || key > 57) {
+				e.preventDefault();
+			}
+			}
 	  
 	  function soloLetras(e){
 		  var charCode = e.charCode;

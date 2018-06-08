@@ -17,7 +17,7 @@ if(isset($_SESSION['usuario'])){
 	</head>
 	<body>
 		<div class="container">
-			<h1>Articulos</h1>
+			<h1>Articulos y Servicios</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmArticulos" enctype="multipart/form-data">
